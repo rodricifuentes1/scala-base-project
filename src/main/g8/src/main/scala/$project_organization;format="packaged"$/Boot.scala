@@ -1,10 +1,12 @@
 package $project_organization$
 
-object Boot extends App {
+import com.typesafe.scalalogging.LazyLogging
+
+object Boot extends App with LazyLogging {
 
   def helloWorld: String = {
     "Hello world"
   }
 
-  println(helloWorld)
+  logger.info(helloWorld)
 }

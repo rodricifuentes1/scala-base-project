@@ -12,7 +12,7 @@
     <appender name="FILE_OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>./logs/$name;format="norm"$.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/$name;format="norm"$/%d{yyyy-MM,aux}/%d.log.gz</fileNamePattern>
+            <fileNamePattern>./logs/$name;format="norm"$/%d{yyyy-MM,aux}/%d.%i.log.gz</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>50MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -36,7 +36,7 @@
     <appender name="FILE_ERR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>./logs/$name;format="norm"$.err</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/$name;format="norm"$/%d{yyyy-MM,aux}/%d.err.gz</fileNamePattern>
+            <fileNamePattern>./logs/$name;format="norm"$/%d{yyyy-MM,aux}/%d.%i.err.gz</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>50MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -55,7 +55,7 @@
     <appender name="FILE_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>./logs/$name;format="norm"$.debug</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/$name;format="norm"$/%d{yyyy-MM,aux}/%d.debug.gz</fileNamePattern>
+            <fileNamePattern>./logs/$name;format="norm"$/%d{yyyy-MM,aux}/%d.%i.debug.gz</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>50MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>

@@ -39,8 +39,27 @@ libraryDependencies ++= Dependencies.all
 // -----------------------------------------------------
 // Projects definitions
 // -----------------------------------------------------
-lazy val root: Project = Project("$name;format="norm"$", file("."))
+lazy val root: Project = Project(
+  "$name;format="norm"$",
+  file(".")
+).disablePlugins(SbtScalariform)
 
 // -----------------------------------------------------
 // Custom tasks
 // -----------------------------------------------------
+lazy val customCompile: TaskKey[Unit] = taskKey[Unit]("customCompile")
+customCompile := Def.sequential (
+  com.timushev.sbt.updates.UpdatesKeys.dependencyUpdates.in(Compile).toTask,
+  com.typesafe.sbt.SbtScalariform.ScalariformKeys.format.in(Compile).toTask,
+  org.scalastyle.sbt.ScalastylePlugin.scalastyle.in(Compile).toTask("")
+).value
+
+lazy val customTest: TaskKey[Unit] = taskKey[Unit]("customTest")
+customTest := Def.sequential (
+  com.timushev.sbt.updates.UpdatesKeys.dependencyUpdates.in(Test).toTask,
+  com.typesafe.sbt.SbtScalariform.ScalariformKeys.format.in(Test).toTask,
+  org.scalastyle.sbt.ScalastylePlugin.scalastyle.in(Test).toTask("")
+).value
+
+(compile in Compile) <<= (compile in Compile).dependsOn(customCompile)
+(test in Test) <<= (test in Test).dependsOn(customTest)
