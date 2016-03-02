@@ -42,7 +42,11 @@ libraryDependencies ++= Dependencies.all
 lazy val root: Project = Project(
   "$name;format="norm"$",
   file(".")
-).disablePlugins(SbtScalariform)
+).enablePlugins(
+  JavaAppPackaging
+).disablePlugins(
+  SbtScalariform
+)
 
 // -----------------------------------------------------
 // Custom tasks
