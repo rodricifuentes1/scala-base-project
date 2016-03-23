@@ -10,9 +10,9 @@ object Versions {
   lazy val ficusVersion: String = "1.2.3"
   lazy val scalaTimeVersion: String = "2.10.0"
 
-  lazy val scalazVersion: String = "7.2.0"
+  lazy val scalazVersion: String = "7.2.1"
 
-  lazy val specs2Version: String = "3.7.1"
+  lazy val specs2Version: String = "3.7.2"
   lazy val specs2ScalazVersion: String = "0.4.0"
 
 }
